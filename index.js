@@ -35,7 +35,6 @@ function divGenerator(totalRow, totalColumn) {
   }
 
   const squareEl = document.querySelectorAll(".square");
-  console.log(squareEl);
 
   start();
 
@@ -66,7 +65,6 @@ function divGenerator(totalRow, totalColumn) {
       square.addEventListener("mouseover", () => {
         let randomize = Math.floor(Math.random() * 16777215).toString(16);
         square.setAttribute("style", `background-color:#${randomize};`);
-        console.log(randomize);
       });
     }
   });
@@ -80,7 +78,6 @@ function divGenerator(totalRow, totalColumn) {
           "style",
           `background-color:rgba(0, 0, 0, ${increaseEffect})`
         );
-        console.log(square.getAttribute("style"));
       });
     }
   });
