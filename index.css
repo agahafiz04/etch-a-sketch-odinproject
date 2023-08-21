@@ -4,6 +4,7 @@
   padding: 0;
   margin: 0;
   font-family: "Indie Flower", cursive;
+  zoom: 93%;
 }
 
 html,
@@ -47,7 +48,7 @@ button {
   display: block;
   background-color: yellow;
   border: black 1px solid;
-  border-radius: 5px;
+  border-radius: 15px;
   padding: 5px 10px;
   margin: 15px auto;
   width: auto;

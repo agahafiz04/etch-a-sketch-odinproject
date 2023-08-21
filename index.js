@@ -27,45 +27,43 @@ function divGenerator(totalRow, totalColumn) {
 
   const squareEl = document.querySelectorAll(".square");
 
+  // Default Hover
+  // for (const square of squareEl) {
+  //   square.addEventListener("mouseover", () => {
+  //     square.classList.add("hover");
+  //   });
+  // }
+
+  // Colorful Hover
   for (const square of squareEl) {
     square.addEventListener("mouseover", () => {
-      square.classList.add("hover");
+      let randomizer = Math.floor(Math.random() * 16777215).toString(16);
+      square.setAttribute("style", `background-color:#${randomizer};`);
     });
-
-    // if (totalRow == 16 || totalColumn == 16) {
-    //   for (const square of squareEl) {
-    //     square.setAttribute("style", "width:40px;height:40px;");
-    //     square.addEventListener("mouseover", () => {
-    //       square.classList.add("hover");
-    //     });
-    //   }
-    // } else if (totalRow == 32 || totalColumn == 32) {
-    //   for (const square of squareEl) {
-    //     square.setAttribute("style", "width:25px;height:20px;");
-    //     square.addEventListener("mouseover", () => {
-    //       square.classList.add("hover");
-    //     });
-    //   }
-    // } else {
-    //   for (const square of squareEl) {
-    //     square.setAttribute("style", "width:12px;height:10px;");
-    //     square.addEventListener("mouseover", () => {
-    //       square.classList.add("hover");
-    //     });
-    //   }
-    // }
   }
 
-  buttonEl.addEventListener("click", function () {
-    const numberValue = document.getElementById("quantity").value;
-
-    if (numberValue >= 16 && numberValue <= 100) {
-      console.log("Berhasil");
-      divGenerator(numberValue, numberValue);
-      paraEl.textContent = `Grid of ${numberValue} x ${numberValue}`;
-    } else {
-      console.log("salah");
-      paraEl.textContent = "Please Enter Correct Value (16-100 Grid Only)";
-    }
-  });
+  // Increase Darkening Effect Hover
+  // for (const square of squareEl) {
+  //   let increaseEffect = 0;
+  //   square.addEventListener("mouseover", () => {
+  //     increaseEffect += 0.1;
+  //     square.setAttribute(
+  //       "style",
+  //       `background-color:rgba(0,0,0,${increaseEffect});`
+  //     );
+  //   });
+  // }
 }
+
+buttonEl.addEventListener("click", function () {
+  const numberValue = document.getElementById("quantity").value;
+
+  if (numberValue >= 16 && numberValue <= 100) {
+    console.log("Berhasil");
+    divGenerator(numberValue, numberValue);
+    paraEl.textContent = `Grid of ${numberValue} x ${numberValue}`;
+  } else {
+    console.log("salah");
+    paraEl.textContent = "Please Enter Correct Value (16-100 Grid Only)";
+  }
+});
