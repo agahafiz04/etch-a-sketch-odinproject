@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Barriecito&family=Indie+Flower&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Indie Flower", cursive;
+}
+
+html,
+body {
+  box-sizing: content-box;
+  min-height: 100vh;
+}
+
+h1 {
+  text-align: center;
+  border: 5px solid black;
+  border-radius: 25px;
+  width: 500px;
+  margin: 15px auto;
+}
+
+h2 {
+  text-align: center;
+  width: 500px;
+  margin: 15px auto;
+}
+
+p {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 25px;
+}
+
+form input {
+  text-align: center;
+  background-color: white;
+  cursor: pointer;
+  display: block;
+  margin: 15px auto;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+button {
+  cursor: pointer;
+  display: block;
+  background-color: yellow;
+  border: black 1px solid;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin: 15px auto;
+  width: auto;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: white;
+}
+
+button:active {
+  background-color: red;
+}
+
+div.main-container {
+  width: 960px;
+  height: 900px;
+  margin: 0px auto;
+  display: flex;
+}
+
+div.parent {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+div.square {
+  border: 1px solid black;
+  height: 100%;
+}
+
+div.square.hover {
+  background-color: black;
+}
