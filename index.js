@@ -1,15 +1,18 @@
+// Calling DOM
 const mainContainerEl = document.querySelector(".main-container");
 const buttonEl = document.querySelector("button");
 const resetButtonEl = document.querySelector(".reset");
 const paraEl = document.createElement("p");
 document.body.appendChild(paraEl);
 
+// Remove all child nodes from the container parents
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
     parent.removeChild(parent.firstChild);
   }
 }
 
+// Generate div based from the row and column number, and then adding the hover effect
 function divGenerator(totalRow, totalColumn) {
   removeAllChildNodes(mainContainerEl);
 
@@ -55,15 +58,14 @@ function divGenerator(totalRow, totalColumn) {
   // }
 }
 
+// Button function to create div based on input value from user
 buttonEl.addEventListener("click", function () {
   const numberValue = document.getElementById("quantity").value;
 
   if (numberValue >= 16 && numberValue <= 100) {
-    console.log("Berhasil");
     divGenerator(numberValue, numberValue);
     paraEl.textContent = `Grid of ${numberValue} x ${numberValue}`;
   } else {
-    console.log("salah");
     paraEl.textContent = "Please Enter Correct Value (16-100 Grid Only)";
   }
 });
