@@ -33,12 +33,21 @@ p {
   font-size: 25px;
 }
 
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  margin: 0 auto;
+  gap: 10px;
+}
+
 form input {
   text-align: center;
   background-color: white;
   cursor: pointer;
   display: block;
-  margin: 15px auto;
   font-size: 20px;
   border-radius: 10px;
 }
@@ -65,9 +74,48 @@ button:active {
   background-color: red;
 }
 
+.clear {
+  color: blueviolet;
+  background-color: white;
+}
+
+div.button-list {
+  display: flex;
+  width: 650px;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  margin: auto auto;
+}
+
+.button-list .eraser {
+  background-color: rgb(53, 224, 247);
+}
+
+.button-list .random {
+  background-color: rgb(255, 34, 119);
+}
+
+.button-list .darken {
+  color: white;
+  background-color: rgb(11, 12, 12);
+}
+
+.button-list button:hover {
+  background-color: white;
+}
+
+.button-list button:active {
+  background-color: red;
+}
+
+#color-picker {
+  margin-left: 10px;
+}
+
 div.main-container {
   width: 960px;
-  height: 900px;
+  height: 700px;
   margin: 0px auto;
   display: flex;
 }

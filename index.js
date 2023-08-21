@@ -1,9 +1,15 @@
 // Calling DOM
 const mainContainerEl = document.querySelector(".main-container");
 const buttonEl = document.querySelector("button");
-const resetButtonEl = document.querySelector(".reset");
+const resetButtonEl = document.querySelector(".clear");
 const paraEl = document.createElement("p");
 document.body.appendChild(paraEl);
+const randomButtonEl = document.querySelector(".random");
+const darkenButtonEl = document.querySelector(".darken");
+const colorPickerEl = document.querySelector("#color-picker");
+const eraserButtonEl = document.querySelector(".eraser");
+
+divGenerator(16, 16);
 
 // Remove all child nodes from the container parents
 function removeAllChildNodes(parent) {
@@ -29,33 +35,69 @@ function divGenerator(totalRow, totalColumn) {
   }
 
   const squareEl = document.querySelectorAll(".square");
+  console.log(squareEl);
 
-  // Default Hover
-  // for (const square of squareEl) {
-  //   square.addEventListener("mouseover", () => {
-  //     square.classList.add("hover");
-  //   });
-  // }
+  start();
 
-  // Colorful Hover
-  for (const square of squareEl) {
-    square.addEventListener("mouseover", () => {
-      let randomizer = Math.floor(Math.random() * 16777215).toString(16);
-      square.setAttribute("style", `background-color:#${randomizer};`);
-    });
+  //Default Hover
+  function start() {
+    for (const square of squareEl) {
+      square.addEventListener("mouseover", () => {
+        square.setAttribute("style", `background-color:black;`);
+      });
+    }
   }
 
-  // Increase Darkening Effect Hover
-  // for (const square of squareEl) {
-  //   let increaseEffect = 0;
-  //   square.addEventListener("mouseover", () => {
-  //     increaseEffect += 0.1;
-  //     square.setAttribute(
-  //       "style",
-  //       `background-color:rgba(0,0,0,${increaseEffect});`
-  //     );
-  //   });
-  // }
+  // Pick Hover
+  colorPickerEl.addEventListener("click", function () {
+    for (const square of squareEl) {
+      square.addEventListener("mouseover", () => {
+        square.setAttribute(
+          "style",
+          `background-color:${colorPickerEl.value};`
+        );
+      });
+    }
+  });
+
+  // Colorful Hover
+  randomButtonEl.addEventListener("click", function () {
+    for (const square of squareEl) {
+      square.addEventListener("mouseover", () => {
+        let randomize = Math.floor(Math.random() * 16777215).toString(16);
+        square.setAttribute("style", `background-color:#${randomize};`);
+        console.log(randomize);
+      });
+    }
+  });
+
+  darkenButtonEl.addEventListener("click", function () {
+    for (const square of squareEl) {
+      let increaseEffect = 0;
+      square.addEventListener("mouseover", () => {
+        increaseEffect += 0.1;
+        square.setAttribute(
+          "style",
+          `background-color:rgba(0, 0, 0, ${increaseEffect})`
+        );
+        console.log(square.getAttribute("style"));
+      });
+    }
+  });
+
+  eraserButtonEl.addEventListener("click", function () {
+    for (const square of squareEl) {
+      square.addEventListener("mouseover", () => {
+        square.setAttribute("style", `background-color:rgb(255, 255, 255)`);
+      });
+    }
+  });
+
+  for (const square of squareEl) {
+    resetButtonEl.addEventListener("click", function () {
+      square.setAttribute("style", `background-color:white;`);
+    });
+  }
 }
 
 // Button function to create div based on input value from user
@@ -69,3 +111,5 @@ buttonEl.addEventListener("click", function () {
     paraEl.textContent = "Please Enter Correct Value (16-100 Grid Only)";
   }
 });
+
+// Increase Darkening Effect Hover

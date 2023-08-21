@@ -10,13 +10,21 @@
   <body>
     <header>
       <h1>What Is an Etch-a-sketch ?</h1>
+      <h2>16x16 Grid - 100x100 Grid</h2>
       <form>
-        <h2>16x16 Grid - 100x100 Grid</h2>
+        <label for="quantity">Grid Size</label>
         <input type="number" id="quantity" name="quantity" min="16" max="100" />
         <button class="change" type="button">Change Grid</button>
       </form>
     </header>
-
+    <div class="button-list">
+      <button class="random">Random Color</button>
+      <button class="darken">Darken Effect</button>
+      <button class="eraser">Eraser</button>
+      <h3>Color Picker:</h3>
+      <input type="color" name="" id="color-picker" />
+    </div>
     <div class="main-container"></div>
+    <button class="clear">Clear Grid</button>
   </body>
 </html>
