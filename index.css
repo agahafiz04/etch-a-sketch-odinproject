@@ -5,6 +5,7 @@
   margin: 0;
   font-family: "Indie Flower", cursive;
   zoom: 95%;
+  user-select: none;
 }
 
 html,

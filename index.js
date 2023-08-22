@@ -10,6 +10,7 @@ const colorPickerEl = document.querySelector("#color-picker");
 const eraserButtonEl = document.querySelector(".eraser");
 
 divGenerator(16, 16);
+paraEl.textContent = `Grid of ${16} x ${16}`;
 
 // Remove all child nodes from the container parents
 function removeAllChildNodes(parent) {
@@ -35,36 +36,39 @@ function divGenerator(totalRow, totalColumn) {
   }
 
   const squareEl = document.querySelectorAll(".square");
-
+  let down = false;
   start();
 
-  //Default Hover
+  // Pick Hover
+  colorPickerEl.addEventListener("click", start());
   function start() {
     for (const square of squareEl) {
+      square.addEventListener("mousedown", () => {
+        down = true;
+      });
       square.addEventListener("mouseover", () => {
-        square.setAttribute("style", `background-color:black;`);
+        if (!down) return;
+        square.setAttribute("style", `background-color:${colorPickerEl.value}`);
+      });
+      square.addEventListener("mouseup", () => {
+        down = false;
       });
     }
   }
 
-  // Pick Hover
-  colorPickerEl.addEventListener("click", function () {
-    for (const square of squareEl) {
-      square.addEventListener("mouseover", () => {
-        square.setAttribute(
-          "style",
-          `background-color:${colorPickerEl.value};`
-        );
-      });
-    }
-  });
-
   // Colorful Hover
   randomButtonEl.addEventListener("click", function () {
     for (const square of squareEl) {
+      square.addEventListener("mousedown", () => {
+        down = true;
+      });
       square.addEventListener("mouseover", () => {
+        if (!down) return;
         let randomize = Math.floor(Math.random() * 16777215).toString(16);
         square.setAttribute("style", `background-color:#${randomize};`);
+      });
+      square.addEventListener("mouseup", () => {
+        down = false;
       });
     }
   });
@@ -72,20 +76,34 @@ function divGenerator(totalRow, totalColumn) {
   darkenButtonEl.addEventListener("click", function () {
     for (const square of squareEl) {
       let increaseEffect = 0;
+      square.addEventListener("mousedown", () => {
+        down = true;
+      });
       square.addEventListener("mouseover", () => {
+        if (!down) return;
         increaseEffect += 0.1;
         square.setAttribute(
           "style",
           `background-color:rgba(0, 0, 0, ${increaseEffect})`
         );
       });
+      square.addEventListener("mouseup", () => {
+        down = false;
+      });
     }
   });
 
   eraserButtonEl.addEventListener("click", function () {
     for (const square of squareEl) {
+      square.addEventListener("mousedown", () => {
+        down = true;
+      });
       square.addEventListener("mouseover", () => {
+        if (!down) return;
         square.setAttribute("style", `background-color:rgb(255, 255, 255)`);
+      });
+      square.addEventListener("mouseup", () => {
+        down = false;
       });
     }
   });
@@ -109,4 +127,4 @@ buttonEl.addEventListener("click", function () {
   }
 });
 
-// Increase Darkening Effect Hover
+// Test Function
