@@ -36,8 +36,8 @@ function divGenerator(totalRow, totalColumn) {
   }
 
   const squareEl = document.querySelectorAll(".square");
-  let down = false;
   start();
+  let down = false;
 
   // Pick Hover
   colorPickerEl.addEventListener("click", start());
