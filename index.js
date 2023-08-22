@@ -40,8 +40,10 @@ function divGenerator(totalRow, totalColumn) {
   let down = false;
 
   // Pick Hover
-  colorPickerEl.addEventListener("click", start());
+  colorPickerEl.addEventListener("click", start);
+
   function start() {
+    console.log("Dipencet");
     for (const square of squareEl) {
       square.addEventListener("mousedown", () => {
         down = true;
